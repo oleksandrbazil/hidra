@@ -20,8 +20,14 @@
   <%= @developer.email %>
 </p>
 
-<% render partial: 'comments/list', locals: {commentable: @developer} %>
-<% render partial: 'comments/form', locals: {commentable: @developer} %>
+<h4>Related Projects</h4>
+<% @developer.projects.each do |project| %>
+    <li><%= link_to project.name, project_path(project) %></li>
+<% end %>
+
+<h4>Comments</h4>
+<%= render partial: 'comments/list', locals: {commentable: @developer} %>
+<%= render partial: 'comments/form', locals: {commentable: @developer} %>
 
 <%= link_to 'Edit', edit_developer_path(@developer) %> |
 <%= link_to 'Back', developers_path %>

@@ -14,7 +14,13 @@
   <strong>Kind:</strong>
   <%= @project.kind %>
 </p>
+<h4>Related Projects</h4>
+<% @project.developers.each do |developer| %>
+    <li><%= link_to developer.first_name , developer_path(developer) %></li>
+<% end %>
 
+
+<h4>Comments</h4>
 <%= render partial: 'comments/list', locals: {commentable: @project} %>
 <%= render partial: 'comments/form', locals: {commentable: @project} %>
 

@@ -19,6 +19,7 @@ class DevelopersController < ApplicationController
 
   # GET /developers/1/edit
   def edit
+    @projects = Project.all
   end
 
   # POST /developers

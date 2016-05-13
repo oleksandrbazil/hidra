@@ -1,3 +1,11 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.comment {
+  background: #f3f3f3;
+  color: darkblue;
+}
+.comment-form {
+  background: darken(#f3f3f3,30%);
+  color: darken(darkblue,30%);
+}

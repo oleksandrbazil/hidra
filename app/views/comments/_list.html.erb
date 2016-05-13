@@ -1,6 +1,9 @@
 <% commentable.comments.each do |comment| %>
-  <div style=" background: #f3f3f3; color: darkblue">
+  <div class="comment">
     <h5><%= comment.title %></h5>
-    <%= comment.body %>
+    <p><%= comment.body %></p>
+    <small><%= comment.created_at.strftime("%D %H:%M:%S") %></small>
+
+    <%= button_to "delete", comment, :method => :delete %>
   </div>
 <% end %>
