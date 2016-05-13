@@ -20,5 +20,10 @@
   <%= @client.email %>
 </p>
 
+<h3>Comments</h3>
+
+<%= render partial: 'comments/list', locals: {commentable: @client} %>
+<%= render partial: 'comments/form', locals: {commentable: @client} %>
+
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

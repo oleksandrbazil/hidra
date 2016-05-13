@@ -1,0 +1,6 @@
+<% commentable.comments.each do |comment| %>
+  <div style=" background: #f3f3f3; color: darkblue">
+    <h5><%= comment.title %></h5>
+    <%= comment.body %>
+  </div>
+<% end %>
