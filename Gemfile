@@ -50,3 +50,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # For nesded forms
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
+
+# Integrate User system - use branch for solve error issue :
+# DEPRECATION WARNING: alias_method_chain is deprecated.
+gem "devise", :github => 'plataformatec/devise', :branch => 'master'
+gem "omniauth"
