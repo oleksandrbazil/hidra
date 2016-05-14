@@ -1,0 +1,24 @@
+<table class='nested-fields'>
+  <td class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </td>
+
+  <td class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </td>
+
+  <td class="field">
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </td>
+
+  <td class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </td>
+  <td>
+    <%= link_to_remove_association "remove", f %>
+  </td>
+</table>
