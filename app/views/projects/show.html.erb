@@ -14,6 +14,9 @@
   <strong>Kind:</strong>
   <%= @project.kind %>
 </p>
+<div><b>Owner:</b>
+  <%= "#{@project.client.first_name} #{@project.client.last_name}" if @project.client.present? %>
+</div>
 <h4>Related Projects</h4>
 <% @project.developers.each do |developer| %>
     <li><%= link_to developer.first_name , developer_path(developer) %></li>
