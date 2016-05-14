@@ -2,11 +2,12 @@
 
 <h1>Comments</h1>
 
-<table>
+<table class="table comment-table">
   <thead>
     <tr>
       <th>Title</th>
       <th>Body</th>
+      <td>in Model</td>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= comment.title %></td>
         <td><%= comment.body %></td>
+        <td><%= comment.commentable_type %></td>
         <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,5 +27,4 @@
 </table>
 
 <br>
-
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to 'Home Page', :root %>
