@@ -41,6 +41,11 @@
       <%= f.select :developer_id, Developer.all.collect { |x| [x.full_name, x.id] }, {} %>
     </div>
 
+    <div class="field uk-form-row">
+      <h4>Status</h4>
+      <%= f.select :status, Work.statuses.keys %>
+    </div>
+
     <div class="actions">
       <%= f.submit %>
     </div>

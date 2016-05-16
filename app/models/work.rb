@@ -1,6 +1,5 @@
 class Work < ApplicationRecord
   belongs_to :project
   belongs_to :developer
-  enum status: [ :default, :pending, :in_progress, :done ]
-
+  enum status: [:todo, :in_progress, :in_review, :done]
 end
