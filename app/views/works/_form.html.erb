@@ -40,11 +40,6 @@
       <h4><%= f.label :developer_id, 'Choose Developer' %></h4>
       <%= f.select :developer_id, Developer.all.collect { |x| [x.full_name, x.id] }, {} %>
     </div>
-    <div class="field uk-form-row">
-      <h4><%= f.label :client_id, 'Choose Client' %></h4>
-      <%= f.select :client_id, Client.all.collect { |x| [x.full_name, x.id] }, {} %>
-    </div>
-
 
     <div class="actions">
       <%= f.submit %>

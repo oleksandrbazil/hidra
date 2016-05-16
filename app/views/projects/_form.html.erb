@@ -31,13 +31,6 @@
       <%= f.select :client_id, Client.all.collect {|x| [x.full_name, x.id]}, {} %>
     </div>
 
-    <div class="field uk-form-row">
-      <h4><%= f.label :developer_ids, 'Check related developers', class: 'uk-text-success' %></h4>
-      <%= f.collection_check_boxes(:developer_ids, Developer.all, :id, :full_name, checked: project.developers.map(&:id)) do |b| %>
-          <%= b.check_box %><%= b.label %>
-      <% end %>
-    </div>
-
     <div class="actions">
       <%= f.submit class: 'uk-button uk-button-success' %>
     </div>
