@@ -1,6 +1,21 @@
-<h1>Editing Project</h1>
 
-<%= render 'form', project: @project %>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+<div class="uk-grid">
+  <div class="uk-width-8-10 uk-push-1-10">
+    <h1>Editing Project</h1>
+    <%= render 'form', project: @project %>
+
+  </div>
+</div>
+
+<div class="uk-grid">
+  <div class="uk-width-4-6 uk-push-1-6">
+    <div class="uk-button-group">
+      <%= link_to 'Show', @project, class: 'uk-button uk-button-small uk-button-primary' %>
+      <%= link_to 'Back', projects_path, class: 'uk-button uk-button-small' %>
+    </div>
+  </div>
+</div>
+
+
+
