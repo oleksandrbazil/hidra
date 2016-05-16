@@ -1,31 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="uk-grid">
+  <div class="uk-width-8-10 uk-push-1-10">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @project.name %>
+    </p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @project.url %>
-</p>
+    <p>
+      <strong>Url:</strong>
+      <%= @project.url %>
+    </p>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @project.kind %>
-</p>
-<div><b>Owner:</b>
-  <%= "#{@project.client.first_name} #{@project.client.last_name}" if @project.client.present? %>
+    <p>
+      <strong>Kind:</strong>
+      <%= @project.kind %>
+    </p>
+
+    <div><b>Owner:</b>
+      <%= "#{@project.client.first_name} #{@project.client.last_name}" if @project.client.present? %>
+    </div>
+    <h4>Related Projects</h4>
+    <% @project.developers.each do |developer| %>
+        <li><%= link_to developer.first_name, developer_path(developer) %></li>
+    <% end %>
+
+    <div class="uk-button-group">
+      <%= link_to 'Edit', edit_project_path(@project), class: 'uk-button uk-button-small uk-button-primary' %>
+      <%= link_to 'Back', developers_path, class: 'uk-button uk-button-small' %>
+    </div>
+  </div>
 </div>
-<h4>Related Projects</h4>
-<% @project.developers.each do |developer| %>
-    <li><%= link_to developer.first_name , developer_path(developer) %></li>
-<% end %>
 
-
-<h4>Comments</h4>
-<%= render partial: 'comments/list', locals: {commentable: @project} %>
-<%= render partial: 'comments/form', locals: {commentable: @project} %>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div class="uk-grid">
+  <div class="uk-width-4-6 uk-push-1-6">
+    <h4 class="uk-text-primary">Comments</h4>
+    <%= render partial: 'comments/form', locals: {commentable: @project} %>
+    <%= render partial: 'comments/list', locals: {commentable: @project} %>
+  </div>
+</div>

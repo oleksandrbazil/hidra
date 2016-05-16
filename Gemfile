@@ -55,3 +55,4 @@ gem 'cocoon', '~> 1.2', '>= 1.2.9'
 # DEPRECATION WARNING: alias_method_chain is deprecated.
 gem "devise", :github => 'plataformatec/devise', :branch => 'master'
 gem "omniauth"
+gem 'uikitrails', '~> 0.1'

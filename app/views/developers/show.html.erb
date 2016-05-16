@@ -25,9 +25,20 @@
     <li><%= link_to project.name, project_path(project) %></li>
 <% end %>
 
-<h4>Comments</h4>
-<%= render partial: 'comments/list', locals: {commentable: @developer} %>
-<%= render partial: 'comments/form', locals: {commentable: @developer} %>
+<div class="uk-grid">
+  <div class="uk-width-8-10 uk-push-1-10">
+    <div class="uk-button-group">
+      <%= link_to 'Edit', edit_developer_path(@developer), class: 'uk-button uk-button-small uk-button-primary' %>
+      <%= link_to 'Back', developers_path, class: 'uk-button uk-button-small' %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_developer_path(@developer) %> |
-<%= link_to 'Back', developers_path %>
+<div class="uk-grid">
+  <div class="uk-width-4-6 uk-push-1-6">
+    <h4 class="uk-text-primary">Comments</h4>
+    <%= render partial: 'comments/form', locals: {commentable: @developer} %>
+    <%= render partial: 'comments/list', locals: {commentable: @developer} %>
+  </div>
+</div>
+
