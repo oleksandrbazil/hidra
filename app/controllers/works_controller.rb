@@ -1,5 +1,7 @@
 class WorksController < ApplicationController
   before_action :set_work, only: [:show, :edit, :update, :destroy]
+  before_action :set_locale
+  helper_method :current_status
 
   # GET /works
   # GET /works.json
@@ -61,6 +63,7 @@ class WorksController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_work
@@ -70,5 +73,9 @@ class WorksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
       params.require(:work).permit(:name, :description, :progress, :payment, :project_id, :developer_id, :status)
+    end
+
+    def set_locale
+      I18n.locale = params[:locale] || I18n.default_locale
     end
 end

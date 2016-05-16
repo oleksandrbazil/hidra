@@ -19,10 +19,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+ru:
+  hello: 'Привет Мир!'
   work_statuses:
-    todo: 'Todo'
-    in_progress: 'In Progress'
-    in_review: 'In Review'
-    done: 'Done'
+      todo: 'Сделать'
+      in_progress: 'В процессе'
+      in_review: 'На рассмотрении'
+      done: 'Сделано'
