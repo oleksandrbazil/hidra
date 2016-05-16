@@ -1,0 +1,52 @@
+<%= form_for work, html: {class: 'uk-form'} do |f| %>
+    <% if work.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(work.errors.count, "error") %> prohibited this work from being saved:</h2>
+
+          <ul>
+            <% work.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field uk-form-row">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field uk-form-row">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="field uk-form-row">
+      <%= f.label :progress %>
+      <%= f.number_field :progress %>
+    </div>
+
+    <div class="field uk-form-row">
+      <%= f.label :payment %>
+      <%= f.number_field :payment %>
+    </div>
+
+
+    <div class="field uk-form-row">
+      <h4><%= f.label :project_id, 'Choose Project' %></h4>
+      <%= f.select :project_id, Project.all.collect { |x| [x.name, x.id] }, {} %>
+    </div>
+    <div class="field uk-form-row">
+      <h4><%= f.label :developer_id, 'Choose Developer' %></h4>
+      <%= f.select :developer_id, Developer.all.collect { |x| [x.full_name, x.id] }, {} %>
+    </div>
+    <div class="field uk-form-row">
+      <h4><%= f.label :client_id, 'Choose Client' %></h4>
+      <%= f.select :client_id, Client.all.collect { |x| [x.full_name, x.id] }, {} %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

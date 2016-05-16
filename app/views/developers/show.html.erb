@@ -24,6 +24,10 @@
 <% @developer.projects.each do |project| %>
     <li><%= link_to project.name, project_path(project) %></li>
 <% end %>
+<h4>Related Works</h4>
+<% @developer.works.each do |work| %>
+    <li><%= link_to work.name, project_path(work) %></li>
+<% end %>
 
 <div class="uk-grid">
   <div class="uk-width-8-10 uk-push-1-10">

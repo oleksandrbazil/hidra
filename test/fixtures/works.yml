@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  progress: 1
+  payment: 1
+  project: one
+  developer: one
+  client: one
+
+two:
+  name: MyString
+  description: MyString
+  progress: 1
+  payment: 1
+  project: two
+  developer: two
+  client: two
