@@ -13,6 +13,7 @@
         <th>Payment</th>
         <th>Project</th>
         <th>Developer</th>
+        <th>Status</th>
         <th colspan="3"></th>
       </tr>
       </thead>
@@ -26,6 +27,7 @@
             <td><%= work.payment %></td>
             <td><%= work.project.name %></td>
             <td><%= work.developer.full_name %></td>
+            <td><%= t("work_statuses.#{work.status}") %></td>
             <td><%= link_to 'Show', work %></td>
             <% if can? :update, work %>
                 <td><%= link_to 'Edit', edit_work_path(work) %></td>
