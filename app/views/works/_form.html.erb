@@ -46,7 +46,7 @@
       <%= f.select :status, Work.statuses.keys.collect { |s| [t("work_statuses.#{s}"), s] }, {} %>
     </div>
 
-    <div class="actions">
-      <%= f.submit %>
+    <div class="actions uk-form-row">
+      <%= f.submit class: 'uk-button uk-button-small uk-button-success' %>
     </div>
 <% end %>

@@ -1,39 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="uk-grid">
+  <div class="uk-width-8-10 uk-push-1-10">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @work.name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @work.name %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @work.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @work.description %>
+    </p>
 
-<p>
-  <strong>Progress:</strong>
-  <%= @work.progress %>
-</p>
+    <p>
+      <strong>Progress:</strong>
+      <%= @work.progress %>
+    </p>
 
-<p>
-  <strong>Payment:</strong>
-  <%= @work.payment %>
-</p>
+    <p>
+      <strong>Payment:</strong>
+      <%= @work.payment %>
+    </p>
 
-<p>
-  <strong>Project:</strong>
-  <%= @work.project.name %>
-</p>
+    <p>
+      <strong>Project:</strong>
+      <%= @work.project.name %>
+    </p>
 
-<p>
-  <strong>Developer:</strong>
-  <%= @work.developer.full_name %>
-</p>
+    <p>
+      <strong>Developer:</strong>
+      <%= @work.developer.full_name %>
+    </p>
 
-<p>
-  <strong>Status</strong>
-  <%= t("work_statuses.#{@work.status}") %>
-</p>
+    <p>
+      <strong>Status</strong>
+      <%= t("work_statuses.#{@work.status}") %>
+    </p>
 
-<%= link_to 'Edit', edit_work_path(@work) %> |
-<%= link_to 'Back', works_path %>
+    <% if can? :update, @work %>
+        <%= link_to 'Edit', edit_work_path(@work) , class: 'uk-button uk-button-small uk-button-primary' %> |
+    <% end %>
+
+    <%= link_to 'Back', works_path, class: 'uk-button uk-button-medium' %>
+  </div>
+</div>

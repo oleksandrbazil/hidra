@@ -1,6 +1,11 @@
-<h1>Editing Work</h1>
-
-<%= render 'form', work: @work %>
-
-<%= link_to 'Show', @work %> |
-<%= link_to 'Back', works_path %>
+<div class="uk-grid">
+  <div class="uk-width-8-10 uk-push-1-10">
+    <h1>Editing Work</h1>
+    <%= render 'form', work: @work %>
+    <br>
+    <div class="uk-button-group">
+      <%= link_to 'Show', @work, class: 'uk-button uk-button-small uk-button-primary' %>
+      <%= link_to 'Back', works_path, class: 'uk-button uk-button-small' %>
+    </div>
+  </div>
+</div>
