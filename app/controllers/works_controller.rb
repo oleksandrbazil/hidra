@@ -1,7 +1,9 @@
 class WorksController < ApplicationController
   before_action :set_work, only: [:show, :edit, :update, :destroy]
   before_action :set_locale
+  before_action :authenticate_user!
   helper_method :current_status
+  load_and_authorize_resource only: [:edit, :destroy]
 
   # GET /works
   # GET /works.json
@@ -27,7 +29,7 @@ class WorksController < ApplicationController
   # POST /works.json
   def create
     @work = Work.new(work_params)
-
+    @work.user_id = current_user.id if current_user
     respond_to do |format|
       if @work.save
         format.html { redirect_to @work, notice: 'Work was successfully created.' }
@@ -42,6 +44,7 @@ class WorksController < ApplicationController
   # PATCH/PUT /works/1
   # PATCH/PUT /works/1.json
   def update
+    @work.user_id = current_user.id if current_user
     respond_to do |format|
       if @work.update(work_params)
         format.html { redirect_to @work, notice: 'Work was successfully updated.' }
@@ -72,7 +75,7 @@ class WorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
-      params.require(:work).permit(:name, :description, :progress, :payment, :project_id, :developer_id, :status)
+      params.require(:work).permit(:name, :description, :progress, :payment, :project_id, :developer_id, :status, :user_id)
     end
 
     def set_locale

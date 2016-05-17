@@ -58,3 +58,4 @@ gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem "devise", :github => 'plataformatec/devise', :branch => 'master'
 gem "omniauth"
 gem 'uikitrails', '~> 0.1'
+gem 'cancancan', '~> 1.14'
