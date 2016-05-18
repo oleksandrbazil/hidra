@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :works
-  devise_for :users, controllers: { omniauth_callbacks: "callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :comments
   resources :projects do
     resources :comments, module: :projects
