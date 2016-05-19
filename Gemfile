@@ -61,3 +61,4 @@ gem "omniauth-google-oauth2"
 gem 'omniauth-facebook'
 gem 'uikitrails', '~> 0.1'
 gem 'cancancan', '~> 1.14'
+gem "figaro"

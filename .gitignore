@@ -27,5 +27,4 @@
 /db/schema.rb
 
 #Ignore .yml files
-config/database.yml
-config/secrets.yml
+config/application.yml

@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = Rails.application.secrets.devise_key
+  config.secret_key = ENV['devise_key']
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -264,12 +264,12 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   # Facebook
   config.omniauth :facebook,
-                  Rails.application.secrets.facebook_app_id,
-                  Rails.application.secrets.facebook_app_secret
+                  ENV['facebook_app_id'],
+                  ENV['facebook_app_secret']
   # Google
   require 'omniauth-google-oauth2'
   config.omniauth :google_oauth2,
-                  Rails.application.secrets.google_app_id,
-                  Rails.application.secrets.google_app_secret,
+                  ENV['google_app_id'],
+                  ENV['google_app_secret'],
                   {scope: 'email', access_type: 'online'}
 end
