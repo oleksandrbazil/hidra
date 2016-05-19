@@ -13,10 +13,12 @@ class User < ApplicationRecord
   }
 
   def self.from_omniauth(auth, current_user)
-    authorization = Authorization.where(:provider => auth.provider, :uid => auth.uid.to_s,
-                                        :token => auth.credentials.token,
-                                        :secret => auth.credentials.secret).first_or_initialize
-    # authorization.profile_page = auth.info.urls.first.last unless authorization.persisted?
+    authorization = Authorization.where(
+        provider: auth.provider,
+        uid: auth.uid.to_s,
+        token: auth.credentials.token,
+        secret: auth.credentials.secret
+    ).first_or_initialize
     if authorization.user.blank?
       user = current_user.nil? ? User.where('email = ?', auth['info']['email']).first : current_user
       if user.blank?
@@ -27,13 +29,12 @@ class User < ApplicationRecord
         user.save
       end
       authorization.user = user
-      authorization.save
+      authorization.save if user.email?
     end
     authorization.user
   end
 
   def fetch_details(auth)
     self.email = auth.info.email
-    # self.photo = URI.parse(auth.info.image)
   end
 end
