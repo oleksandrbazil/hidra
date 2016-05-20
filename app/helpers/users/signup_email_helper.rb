@@ -1,0 +1,2 @@
+module Users::SignupEmailHelper
+end

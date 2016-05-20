@@ -12,29 +12,33 @@ class User < ApplicationRecord
       google_oauth2: 'Google',
   }
 
-  def self.from_omniauth(auth, current_user)
+  def self.user_from_omniauth(omniauth, current_user)
+    # omniauth is different from oauth and from session
+    omniauth = omniauth.as_json
+
     authorization = Authorization.where(
-        provider: auth.provider,
-        uid: auth.uid.to_s,
-        token: auth.credentials.token,
-        secret: auth.credentials.secret
+        provider: omniauth['provider'],
+        uid: omniauth['uid'].to_s,
     ).first_or_initialize
+    authorization['token'] = omniauth['credentials']['token']
+    authorization['secret'] = omniauth['credentials']['secret']
+
     if authorization.user.blank?
-      user = current_user.nil? ? User.where('email = ?', auth['info']['email']).first : current_user
+      user = current_user.nil? ? User.where('email = ?', omniauth['info']['email']).first : current_user
       if user.blank?
         user = User.new
         user.skip_confirmation!
         user.password = Devise.friendly_token[0, 20]
-        user.fetch_details(auth)
+        user.fetch_details(omniauth)
         user.save
       end
       authorization.user = user
-      authorization.save if user.email?
+      authorization.save
     end
     authorization.user
   end
 
-  def fetch_details(auth)
-    self.email = auth.info.email
+  def fetch_details(omniauth)
+    self.email = omniauth['info']['email']
   end
 end

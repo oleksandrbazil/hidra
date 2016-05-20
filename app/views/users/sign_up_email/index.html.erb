@@ -1,0 +1,9 @@
+<h1>Please continue registration</h1>
+<h2>enter your email</h2>
+
+<%= form_tag users_signup_email_path, method: 'post' do %>
+    <%= email_field_tag :email, nil, class: 'special_input' %>
+    <br>
+    <div><%= submit_tag 'Register' %></div>
+<% end %>
+
