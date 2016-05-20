@@ -32,7 +32,7 @@ class WorksController < ApplicationController
     @work.user_id = current_user.id if current_user
     respond_to do |format|
       if @work.save
-        format.html { redirect_to @work, notice: 'Work was successfully created.' }
+        format.html { redirect_to works_url, notice: 'Work was successfully created.' }
         format.json { render :show, status: :created, location: @work }
       else
         format.html { render :new }
