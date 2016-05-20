@@ -5,17 +5,17 @@ class DevelopersControllerTest < ActionDispatch::IntegrationTest
     @developer = developers(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get developers_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_developer_url
     assert_response :success
   end
 
-  test "should create developer" do
+  test 'should create developer' do
     assert_difference('Developer.count') do
       post developers_url, params: { developer: { email: @developer.email, first_name: @developer.first_name, last_name: @developer.last_name, phone: @developer.phone } }
     end
@@ -23,22 +23,22 @@ class DevelopersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to developer_path(Developer.last)
   end
 
-  test "should show developer" do
+  test 'should show developer' do
     get developer_url(@developer)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_developer_url(@developer)
     assert_response :success
   end
 
-  test "should update developer" do
+  test 'should update developer' do
     patch developer_url(@developer), params: { developer: { email: @developer.email, first_name: @developer.first_name, last_name: @developer.last_name, phone: @developer.phone } }
     assert_redirected_to developer_path(@developer)
   end
 
-  test "should destroy developer" do
+  test 'should destroy developer' do
     assert_difference('Developer.count', -1) do
       delete developer_url(@developer)
     end

@@ -7,19 +7,17 @@ class User < ApplicationRecord
   has_many :works
   has_many :authorizations
 
-  SOCIALS = {
-      facebook: 'Facebook',
-      google_oauth2: 'Google',
-  }
+  SOCIALS = { facebook: 'Facebook', google_oauth2: 'Google' }
 
   def self.user_from_omniauth(omniauth, current_user)
     # omniauth is different from oauth and from session
     omniauth = omniauth.as_json
 
-    authorization = Authorization.where(
-        provider: omniauth['provider'],
-        uid: omniauth['uid'].to_s,
-    ).first_or_initialize
+    authorization = Authorization.
+        where(
+            provider: omniauth['provider'],
+            uid: omniauth['uid'].to_s
+        ).first_or_initialize
     authorization['token'] = omniauth['credentials']['token']
     authorization['secret'] = omniauth['credentials']['secret']
 

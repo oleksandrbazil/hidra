@@ -271,5 +271,6 @@ Devise.setup do |config|
   config.omniauth :google_oauth2,
                   ENV['google_app_id'],
                   ENV['google_app_secret'],
-                  {scope: 'email', access_type: 'online'}
+                  scope: 'email',
+                  access_type: 'online'
 end

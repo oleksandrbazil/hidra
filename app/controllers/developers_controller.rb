@@ -64,13 +64,14 @@ class DevelopersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_developer
-      @developer = Developer.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def developer_params
-      params.require(:developer).permit(:first_name, :last_name, :phone, :email)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_developer
+    @developer = Developer.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def developer_params
+    params.require(:developer).permit(:first_name, :last_name, :phone, :email)
+  end
 end

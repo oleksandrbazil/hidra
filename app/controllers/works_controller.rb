@@ -2,7 +2,6 @@ class WorksController < ApplicationController
   before_action :set_work, only: [:show, :edit, :update, :destroy]
   before_action :set_locale
   before_action :authenticate_user!
-  helper_method :current_status
   load_and_authorize_resource only: [:edit, :destroy]
 
   # GET /works
@@ -66,19 +65,19 @@ class WorksController < ApplicationController
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_work
-      @work = Work.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def work_params
-      params.require(:work).permit(:name, :description, :progress, :payment, :project_id, :developer_id, :status, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_work
+    @work = Work.find(params[:id])
+  end
 
-    def set_locale
-      I18n.locale = params[:locale] || I18n.default_locale
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def work_params
+    params.require(:work).permit(:name, :description, :progress, :payment, :project_id, :developer_id, :status, :user_id)
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
 end
