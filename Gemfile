@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'better_errors'
 end
 
 group :development do
@@ -62,3 +63,17 @@ gem 'omniauth-facebook'
 gem 'uikitrails', '~> 0.1'
 gem 'cancancan', '~> 1.14'
 gem "figaro"
+# Active admin
+gem 'activeadmin', github: 'activeadmin'
+gem 'rspec-rails', '>= 3.5.0.beta1'
+gem 'ransack',    github: 'activerecord-hackery/ransack'
+gem 'kaminari',   github: 'amatsuda/kaminari', branch: '0-17-stable'
+gem 'formtastic', github: 'justinfrench/formtastic'
+gem 'draper',     github: 'audionerd/draper', branch: 'rails5', ref: 'e816e0e587'
+# To fix a Draper deprecation error
+gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
+# Optional -- only if you already include these gems
+gem 'rack-mini-profiler',          github: 'MiniProfiler/rack-mini-profiler'
+gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
+# Only for JRuby:
+gem 'activerecord-jdbc-adapter',   github: 'jruby/activerecord-jdbc-adapter', platforms: :jruby
