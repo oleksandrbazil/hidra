@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :comments
+  resources :products
   resources :projects do
     resources :comments, module: :projects
   end

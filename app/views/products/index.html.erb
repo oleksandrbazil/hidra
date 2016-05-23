@@ -1,0 +1,33 @@
+<div class="uk-grid">
+  <div class="uk-width-8-10 uk-push-1-10 ">
+    <p id="notice"><%= notice %></p>
+
+
+    <% @products.map do |product| %>
+        <h1 class="uk-text-primary"><%= product.title %></h1>
+
+        <div class="">
+          <div>
+            <b>Description</b>
+            <%= product.description %>
+          </div>
+        </div>
+        <div class="">
+          <div>
+            <b>Price:</b>
+            <%= product.price %>
+          </div>
+          <div>
+            <b>Quantity:</b>
+            <%= product.quantity %>
+          </div>
+        </div>
+        <%= button_tag 'BUY NOW', class: 'uk-button uk-button-success' %>
+    <% end %>
+    <br>
+    <br>
+    <div class="uk-text-center">
+      <%= link_to 'Home Page', :root, class: 'uk-button uk-button-small'%>
+    </div>
+  </div>
+</div>
