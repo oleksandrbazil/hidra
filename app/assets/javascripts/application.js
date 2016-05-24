@@ -15,4 +15,3 @@
 //= require turbolinks
 //= require cocoon
 //= require uikit
-//= require_tree .

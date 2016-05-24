@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   resources :works
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :comments
+  resources :products
   resources :projects do
     resources :comments, module: :projects
   end
